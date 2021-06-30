@@ -14,4 +14,4 @@ jobs:
         server: 194.59.164.37
         username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: /domains/syntaxpixel.com/public_html/pillar/wp-content/themes/Pillar
+        server-dir: /domains/syntaxpixel.com/public_html/pillar/wp-content/themes/Pillar/
