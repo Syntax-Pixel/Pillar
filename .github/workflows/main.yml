@@ -11,7 +11,7 @@ jobs:
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
-        server: ftp://194.59.164.37
+        server: 194.59.164.37
         username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: /public_html/pillar/wp-content/themes/Pillar/
+        server-dir: /domains/syntaxpixel.com/public_html/pillar/wp-content/themes/Pillar
