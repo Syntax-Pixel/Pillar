@@ -23,9 +23,9 @@ $query = new WP_Query($args);
                     </div>
                     <div class="hover-element__reveal" data-overlay="9">
                         <div class="boxed">
-                            <h5><?php the_title(); ?></h5>
+                            <h5><?php echo get_the_title(); ?></h5>
                             <span>
-                                <em>type</em>
+                                <em><?php echo get_field( 'type' ); ?></em>
                             </span>
                         </div>
                     </div>
