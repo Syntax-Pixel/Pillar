@@ -902,16 +902,16 @@
                         "min": "",
                         "max": ""
                     },
-                    "layout_60dd33c033c8a": {
-                        "key": "layout_60dd33c033c8a",
+                    "layout_60dd3f05cf094": {
+                        "key": "layout_60dd3f05cf094",
                         "name": "block_partner",
-                        "label": "Block :  Partner",
+                        "label": "Block : Partner",
                         "display": "block",
                         "sub_fields": [
                             {
-                                "key": "field_60dd3538f5dd9",
-                                "label": "Items",
-                                "name": "items",
+                                "key": "field_60dd3f15cf095",
+                                "label": "Partners",
+                                "name": "partners",
                                 "type": "repeater",
                                 "instructions": "",
                                 "required": 0,
@@ -925,12 +925,12 @@
                                 "min": 0,
                                 "max": 0,
                                 "layout": "table",
-                                "button_label": "",
+                                "button_label": "Add Partner",
                                 "sub_fields": [
                                     {
-                                        "key": "field_60dd3553f5dda",
-                                        "label": "Images",
-                                        "name": "images",
+                                        "key": "field_60dd3f23cf096",
+                                        "label": "Partner",
+                                        "name": "partner",
                                         "type": "image",
                                         "instructions": "",
                                         "required": 0,
@@ -940,7 +940,7 @@
                                             "class": "",
                                             "id": ""
                                         },
-                                        "return_format": "url",
+                                        "return_format": "id",
                                         "preview_size": "medium",
                                         "library": "all",
                                         "min_width": "",
@@ -958,7 +958,7 @@
                         "max": ""
                     }
                 },
-                "button_label": "Add Partner",
+                "button_label": "Add Block",
                 "min": "",
                 "max": ""
             }
