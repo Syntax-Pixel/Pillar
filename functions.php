@@ -329,3 +329,66 @@ function pillar_team_taxonomy() {
 }
 add_action( 'init', 'pillar_team_taxonomy', 0 );
 
+// Footer Widget Area
+
+register_sidebar( array(
+    'name' => 'Pillar Widget Footer',
+    'id' => 'pillar-cusom-widget',
+    'description' => 'This Widget Appear on footer',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' => '</aside>',
+    'before_title' => '<h3 class="widget-title">',
+    'after_title' => '</h3>',
+    ) );
+
+// Custom Widget
+
+class Pillar_custom_widget extends WP_Widget {
+
+	function __construct(){
+		parent::__construct(
+			// ID
+			'pillar_widget',
+			// Name
+			__( 'Pillar Widget 1' , 'pillar_widget_domain' ),
+			// Description
+			array( 'description' => __( 'pillar_widget_domain'), ),
+
+		);
+	}
+
+	public function widget( $args , $instance ){
+		$title = apply_filters( 'widget_title', $instance[ 'title' ] );
+		$blog_title = get_bloginfo( 'name' );
+		$tagline = get_bloginfo( 'description' );
+		
+		echo $args['before_widget'] . $args['before_title'] . $title . $args['after_title']; ?>
+		
+	  
+		<?php echo $args['after_widget'];
+	}
+
+	public function form( $instance ){
+		if ( isset( $instance[ 'title' ] ) )
+			$title = $instance[ 'title' ];
+		else
+			$title = __( 'Pillar Widget', 'pillar_widget_domain' );
+		?>
+		<p>
+		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+		</p>
+		<?php
+	}
+
+	public function update( $new_instance , $old_instane ){
+		$instance = array();
+		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+		return $instance;
+	}
+}
+
+function pillar_register_widget() {
+	register_widget( 'Pillar_custom_widget' );
+	}
+add_action( 'widgets_init', 'pillar_register_widget' );
