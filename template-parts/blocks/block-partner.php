@@ -12,12 +12,12 @@ $images = get_sub_field( 'items' );
                         <ul class="slides">
                         <?php foreach( $images as $image ) : ?>
                             <li>
-                                <img alt="img" src="<?php echo $image; ?>" />
+                                <img alt="img" src="<?php echo $image['images']; ?>" />
                             </li> 
                         <?php endforeach; ?>                         
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
     </section>
