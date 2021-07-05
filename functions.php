@@ -295,26 +295,26 @@ add_action( 'init', 'pillar_create_post_type_team' );
 // Register Custom Taxonomy
 function pillar_team_taxonomy() {
 	$labels = array(
-		'name'                       => _x( 'Team Roles', 'Team Roles', 'Pilar.' ),
-		'singular_name'              => _x( 'Team Role', 'Team Role', 'Pilar.' ),
-		'menu_name'                  => __( 'Team Role', 'Pilar.' ),
-		'all_items'                  => __( 'All Roles', 'Pilar.' ),
-		'parent_item'                => __( 'Parent Role', 'Pilar.' ),
-		'pareCategory_colon'         => __( 'Parent Role:', 'Pilar.' ),
-		'new_item_name'              => __( 'New Role Name', 'Pilar.' ),
-		'add_new_item'               => __( 'Add New Role', 'Pilar.' ),
-		'edit_item'                  => __( 'Edit Role', 'Pilar.' ),
-		'update_item'                => __( 'Update Role', 'Pilar.' ),
-		'view_item'                  => __( 'View Role', 'Pilar.' ),
-		'separate_items_with_commas' => __( 'Separate Roles with commas', 'Pilar.' ),
-		'add_or_remove_items'        => __( 'Add or remove Roles', 'Pilar.' ),
-		'choose_from_most_used'      => __( 'Choose from the most used', 'Pilar.' ),
-		'popular_items'              => __( 'Popular Roles', 'Pilar.' ),
-		'search_items'               => __( 'Search Roles', 'Pilar.' ),
-		'not_found'                  => __( 'Not Found', 'Pilar.' ),
-		'no_terms'                   => __( 'No Roles', 'Pilar.' ),
-		'items_list'                 => __( 'Roles list', 'Pilar.' ),
-		'items_list_navigation'      => __( 'Roles list navigation', 'Pilar.' ),
+		'name'                       => _x( 'Team Roles', 'Team Roles', 'pillar' ),
+		'singular_name'              => _x( 'Team Role', 'Team Role', 'pillar' ),
+		'menu_name'                  => __( 'Team Role', 'pillar' ),
+		'all_items'                  => __( 'All Roles', 'pillar' ),
+		'parent_item'                => __( 'Parent Role', 'pillar' ),
+		'pareCategory_colon'         => __( 'Parent Role:', 'pillar' ),
+		'new_item_name'              => __( 'New Role Name', 'pillar' ),
+		'add_new_item'               => __( 'Add New Role', 'pillar' ),
+		'edit_item'                  => __( 'Edit Role', 'pillar' ),
+		'update_item'                => __( 'Update Role', 'pillar' ),
+		'view_item'                  => __( 'View Role', 'pillar' ),
+		'separate_items_with_commas' => __( 'Separate Roles with commas', 'pillar' ),
+		'add_or_remove_items'        => __( 'Add or remove Roles', 'pillar' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'pillar' ),
+		'popular_items'              => __( 'Popular Roles', 'pillar' ),
+		'search_items'               => __( 'Search Roles', 'pillar' ),
+		'not_found'                  => __( 'Not Found', 'pillar' ),
+		'no_terms'                   => __( 'No Roles', 'pillar' ),
+		'items_list'                 => __( 'Roles list', 'pillar' ),
+		'items_list_navigation'      => __( 'Roles list navigation', 'pillar' ),
 	);
 	$args = array(
 		'labels'                     => $labels,
@@ -332,13 +332,24 @@ add_action( 'init', 'pillar_team_taxonomy', 0 );
 // Footer Widget Area
 
 register_sidebar( array(
-    'name' => 'Pillar Widget Footer',
-    'id' => 'pillar-cusom-widget',
+    'name' => 'Pillar Widget Footer 1',
+    'id' => 'pillar-custom-widget-1',
     'description' => 'This Widget Appear on footer',
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget' => '</aside>',
-    'before_title' => '<h3 class="widget-title">',
-    'after_title' => '</h3>',
+    'before_title' => '<h6 class="widget-title">',
+    'after_title' => '</h6>',
+    ) );
+
+
+register_sidebar( array(
+    'name' => 'Pillar Widget Footer 2',
+    'id' => 'pillar-custom-widget-2',
+    'description' => 'This Widget Appear on footer',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget' => '</aside>',
+    'before_title' => '<h6 class="widget-title">',
+    'after_title' => '</h6>',
     ) );
 
 // Custom Widget
@@ -348,11 +359,11 @@ class Pillar_custom_widget extends WP_Widget {
 	function __construct(){
 		parent::__construct(
 			// ID
-			'pillar_widget',
+			'pillar_subscribe',
 			// Name
-			__( 'Pillar Widget 1' , 'pillar_widget_domain' ),
+			__( 'Pillar Subscribe' , 'pillar' ),
 			// Description
-			array( 'description' => __( 'pillar_widget_domain'), ),
+			array( 'description' => __( 'pillar'), ),
 
 		);
 	}
@@ -361,9 +372,22 @@ class Pillar_custom_widget extends WP_Widget {
 		$title = apply_filters( 'widget_title', $instance[ 'title' ] );
 		$blog_title = get_bloginfo( 'name' );
 		$tagline = get_bloginfo( 'description' );
+		$subscribe_item = get_field( 'subscribe' , 'option' );
 		
 		echo $args['before_widget'] . $args['before_title'] . $title . $args['after_title']; ?>
-		
+		<p>
+			<?php echo $subscribe_item['sub_title']; ?>
+		</p>
+		<form class="form--merge form--no-labels" action="<?php echo $subscribe_item['url_form']; ?>" method="post" id="subForm" data-error="Please fill all fields correctly." data-success="Thanks for signing up! Please check your inbox for confirmation email.">
+			<p>
+				<label for="fieldEmail">Email Address</label>
+				<br />
+				<input class="col-md-8 col-sm-6 validate-required validate-email" id="fieldEmail" name="cm-kieth-kieth" type="email" required />
+			</p>
+			<p>
+				<button type="submit">Go</button>
+			</p>
+		</form>
 	  
 		<?php echo $args['after_widget'];
 	}
@@ -392,3 +416,22 @@ function pillar_register_widget() {
 	register_widget( 'Pillar_custom_widget' );
 	}
 add_action( 'widgets_init', 'pillar_register_widget' );
+
+// test
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Theme General Settings',
+		'menu_title'	=> 'Theme Settings',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+	
+	// acf_add_options_sub_page(array(
+	// 	'page_title' 	=> 'General Setting',
+	// 	'menu_title'	=> 'General Setting',
+	// 	'parent_slug'	=> 'theme-general-settings',
+	// ));
+}

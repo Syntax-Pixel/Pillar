@@ -9,106 +9,48 @@
  * @package Pillar-theme
  */
 
+	$socials = get_field( 'social_media' , 'option' );
+	$links   = get_field( 'link_menu_footer' , 'option' );
+
 ?>
 	</div>
 	<footer class="bg--dark footer-4">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3 col-sm-4">
-					<img alt="logo" class="logo" src="img/logo-light.png" />
+					<img alt="logo" class="logo" src="<?php echo get_field( 'logo_footer' , 'option' ); ?>" />
 					<p>
-						<em>Digital Design Melbourne</em>
+						<em><?php echo get_field( 'slogan' , 'option' ); ?></em>
 					</p>
 					<ul class="footer__navigation">
+					<?php foreach( $links as $link ) : ?>
 						<li>
-							<a href="#">
-								<span>About Us</span>
+							<a href="<?php echo $link['url']; ?>">
+								<span><?php echo $link['text']; ?></span>
 							</a>
 						</li>
-						<li>
-							<a href="#">
-								<span>Services</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span>Selected Work</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span>Get In Touch</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<span>Careers</span>
-							</a>
-						</li>
+					<?php endforeach; ?>
 					</ul>
 				</div>
 				<div class="col-md-4 col-sm-8">
-					<h6>Recent News</h6>
-					<div class="twitter-feed">
-						<div class="tweets-feed" data-feed-name="mrareweb" data-amount="2"></div>
-					</div>
+					<?php if( is_active_sidebar( 'pillar-custom-widget-1' ) ){
+						dynamic_sidebar( 'pillar-custom-widget-1' );
+					}?>				
 				</div>
-				<div class="col-md-4 col-md-offset-1 col-sm-12">
-					<h6>Subscribe</h6>
-					<p>
-						Get monthly updates and free resources.
-					</p>
-					<form class="form--merge form--no-labels" action="http://mrareco.createsend.com/t/d/s/kieth/" method="post" id="subForm" data-error="Please fill all fields correctly." data-success="Thanks for signing up! Please check your inbox for confirmation email.">
-						<p>
-							<label for="fieldEmail">Email Address</label>
-							<br />
-							<input class="col-md-8 col-sm-6 validate-required validate-email" id="fieldEmail" name="cm-kieth-kieth" type="email" required />
-						</p>
-						<p>
-							<button type="submit">Go</button>
-						</p>
-					</form>
-					<h6>Connect with Us</h6>
-
-					<?php
-
-    if(is_active_sidebar('pillar-cusom-widget'))
-    {
-        dynamic_sidebar('pillar-cusom-widget');
-    }
-?>
-
+				<div class="col-md-4 col-md-offset-1 col-sm-12">					
+					<?php if( is_active_sidebar( 'pillar-custom-widget-2' ) ){
+						dynamic_sidebar( 'pillar-custom-widget-2' );
+					}?>
+									
+				<h6>Connect with Us</h6>
 					<ul class="social-list">
+					<?php foreach ( $socials as $social ) : ?>
 						<li>
-							<a href="#">
-								<i class="socicon-twitter"></i>
+							<a href="<?php echo $social['url']; ?>">
+								<i class="<?php echo $social['icon']; ?>"></i>
 							</a>
 						</li>
-						<li>
-							<a href="#">
-								<i class="socicon-dribbble"></i>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<i class="socicon-vimeo"></i>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<i class="socicon-instagram"></i>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<i class="socicon-spotify"></i>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<i class="socicon-behance"></i>
-							</a>
-						</li>
+					<?php endforeach; ?>
 					</ul>
 				</div>
 			</div>

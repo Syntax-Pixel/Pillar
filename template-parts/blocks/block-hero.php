@@ -4,6 +4,7 @@ $logo = get_sub_field('logo');
 $description = get_sub_field('description');
 $button = get_sub_field('button');
 $size = 'full';
+$socials = get_field( 'social_media' , 'option' );
 
 // (thumbnail, medium, large, full or custom size)
 // if( $image ) {
@@ -49,26 +50,13 @@ $size = 'full';
         <div class="row">
             <div class="col-sm-12 text-center">
                 <ul class="social-list">
+                <?php foreach( $socials as $social ) : ?>
                     <li>
-                        <a href="#">
-                            <i class="socicon-twitter"></i>
+                        <a href="<?php echo $social['url']; ?>">
+                            <i class="<?php echo $social['icon']; ?>"></i>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="socicon-dribbble"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="socicon-vimeo"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="socicon-instagram"></i>
-                        </a>
-                    </li>
+                <?php endforeach; ?>
                 </ul>
             </div>
         </div>

@@ -29,8 +29,8 @@
             <div class="nav-bar nav--absolute nav--transparent" data-fixed-at="200">
                 <div class="nav-module logo-module left">
                     <a href="index.html">
-                        <img class="logo logo-dark" alt="logo" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-dark.png" />
-                        <img class="logo logo-light" alt="logo" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-light.png" />
+                        <img class="logo logo-dark" alt="logo" src="<?php echo get_field( 'logo_header_dark' , 'option' ); ?>" />
+                        <img class="logo logo-light" alt="logo" src="<?php echo get_field( 'logo_header_light' , 'option' ); ?>" />
                     </a>
                 </div>
                 <div class="nav-module menu-module left">
