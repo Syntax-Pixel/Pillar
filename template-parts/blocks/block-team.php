@@ -16,8 +16,7 @@
                 <?php $twitter = get_field( 'twitter' , get_the_ID() ); ?>
                 <?php $youtube = get_field( 'youtube' , get_the_ID() ); ?>
                 <?php $other_socmed = get_field( 'other_social_media' , get_the_ID() ); ?>
-                <?php $instagram = get_field( 'instagram' , get_the_ID() ); ?>
-        
+                <?php $instagram = get_field( 'instagram' , get_the_ID() ); ?>      
             <div class="col-sm-4 col-xs-6">
                 <div class="hover-element member member-2" data-title-position="center,center">
                     <div class="hover-element__initial">

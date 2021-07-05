@@ -241,7 +241,7 @@ function pillar_create_post_type_portofolio(){
 }
 add_action( 'init', 'pillar_create_post_type_portofolio' );
 // Register Custom Taxonomy
-function pillar_portfolio_taxonomy() {
+function pillar_portofolio_taxonomy() {
 	$labels = array(
 		'name'                       => _x( 'Portofolio Categories', 'Portofolio Categories', 'Pilar.' ),
 		'singular_name'              => _x( 'Portofolio Category', 'Portofolio Category', 'Pilar.' ),
@@ -273,9 +273,9 @@ function pillar_portfolio_taxonomy() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'portfolio-category', array( 'portofolio' ), $args );
+	register_taxonomy( 'portofolio-category', array( 'portofolio' ), $args );
 }
-add_action( 'init', 'pillar_portfolio_taxonomy', 0 );
+add_action( 'init', 'pillar_portofolio_taxonomy', 0 );
 
 
 function pillar_create_post_type_team() {
