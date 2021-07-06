@@ -6,7 +6,6 @@ $args = array(
     'post_type'      => 'portofolio',
     'posts_per_page' => 6,
     'taxonomy'       => 'portofolio-category',
-    pos
 );
 $query = new WP_Query($args);
 
@@ -23,7 +22,7 @@ $query = new WP_Query($args);
                     <div class="hover-element__initial">
                         <img alt="Pic" src="<?php the_post_thumbnail_url(); ?>" />
                     </div>
-                    <div class="hover-element__reveal" data-overlay="9" style="background:<?php echo get_field( 'overlay_color' ); ?>66;">
+                    <div class="hover-element__reveal" data-overlay="0" style="background:<?php echo get_field( 'overlay_color' ); ?>66;">
                         <div class="boxed">
                             <h5><?php echo get_the_title(); ?></h5>
                             <span>

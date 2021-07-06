@@ -140,6 +140,7 @@ add_action( 'widgets_init', 'pillar_theme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function pillar_theme_scripts() {
+	
 	wp_enqueue_style( 'pillar-bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css', array(), _S_VERSION );
 	wp_enqueue_style( 'pillar-socicon', get_template_directory_uri() . '/assets/css/socicon.css', array(), _S_VERSION );
 	wp_enqueue_style( 'pillar-iconsmind', get_template_directory_uri() . '/assets/css/iconsmind.css', array(), _S_VERSION );
@@ -243,26 +244,26 @@ add_action( 'init', 'pillar_create_post_type_portofolio' );
 // Register Custom Taxonomy
 function pillar_portofolio_taxonomy() {
 	$labels = array(
-		'name'                       => _x( 'Portofolio Categories', 'Portofolio Categories', 'Pilar.' ),
-		'singular_name'              => _x( 'Portofolio Category', 'Portofolio Category', 'Pilar.' ),
-		'menu_name'                  => __( 'Portofolio Category', 'Pilar.' ),
-		'all_items'                  => __( 'All Categories', 'Pilar.' ),
-		'parent_item'                => __( 'Parent Category', 'Pilar.' ),
-		'pareCategory_colon'         => __( 'Parent Category:', 'Pilar.' ),
-		'new_item_name'              => __( 'New Category Name', 'Pilar.' ),
-		'add_new_item'               => __( 'Add New Category', 'Pilar.' ),
-		'edit_item'                  => __( 'Edit Category', 'Pilar.' ),
-		'update_item'                => __( 'Update Category', 'Pilar.' ),
-		'view_item'                  => __( 'View Category', 'Pilar.' ),
-		'separate_items_with_commas' => __( 'Separate Categories with commas', 'Pilar.' ),
-		'add_or_remove_items'        => __( 'Add or remove Categories', 'Pilar.' ),
-		'choose_from_most_used'      => __( 'Choose from the most used', 'Pilar.' ),
-		'popular_items'              => __( 'Popular Categories', 'Pilar.' ),
-		'search_items'               => __( 'Search Categories', 'Pilar.' ),
-		'not_found'                  => __( 'Not Found', 'Pilar.' ),
-		'no_terms'                   => __( 'No Categories', 'Pilar.' ),
-		'items_list'                 => __( 'Categories list', 'Pilar.' ),
-		'items_list_navigation'      => __( 'Categories list navigation', 'Pilar.' ),
+		'name'                       => _x( 'Portofolio Categories', 'Portofolio Categories', 'pillar' ),
+		'singular_name'              => _x( 'Portofolio Category', 'Portofolio Category', 'pillar' ),
+		'menu_name'                  => __( 'Portofolio Category', 'pillar' ),
+		'all_items'                  => __( 'All Categories', 'pillar' ),
+		'parent_item'                => __( 'Parent Category', 'pillar' ),
+		'pareCategory_colon'         => __( 'Parent Category:', 'pillar' ),
+		'new_item_name'              => __( 'New Category Name', 'pillar' ),
+		'add_new_item'               => __( 'Add New Category', 'pillar' ),
+		'edit_item'                  => __( 'Edit Category', 'pillar' ),
+		'update_item'                => __( 'Update Category', 'pillar' ),
+		'view_item'                  => __( 'View Category', 'pillar' ),
+		'separate_items_with_commas' => __( 'Separate Categories with commas', 'pillar' ),
+		'add_or_remove_items'        => __( 'Add or remove Categories', 'pillar' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'pillar' ),
+		'popular_items'              => __( 'Popular Categories', 'pillar' ),
+		'search_items'               => __( 'Search Categories', 'pillar' ),
+		'not_found'                  => __( 'Not Found', 'pillar' ),
+		'no_terms'                   => __( 'No Categories', 'pillar' ),
+		'items_list'                 => __( 'Categories list', 'pillar' ),
+		'items_list_navigation'      => __( 'Categories list navigation', 'pillar' ),
 	);
 	$args = array(
 		'labels'                     => $labels,
@@ -396,7 +397,7 @@ class Pillar_custom_widget extends WP_Widget {
 		if ( isset( $instance[ 'title' ] ) )
 			$title = $instance[ 'title' ];
 		else
-			$title = __( 'Pillar Widget', 'pillar_widget_domain' );
+			$title = __( 'Pillar Widget', 'pillar' );
 		?>
 		<p>
 		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
