@@ -7,9 +7,6 @@ $image = get_sub_field('image');
 
 ?>
 
-
-
-
 <section class="testimonial testimonial-3">
     <div class="container">
         <div class="row">

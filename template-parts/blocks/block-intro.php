@@ -3,9 +3,7 @@
 $intro_title = get_sub_field('title');
 $intro_subtitle = get_sub_field('subtitle');
 
-
 ?>
-
 
 <section class="space-bottom--sm">
     <div class="container">

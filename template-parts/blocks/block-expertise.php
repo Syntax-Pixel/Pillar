@@ -3,7 +3,6 @@
 $title = get_sub_field('title');
 $subtitle = get_sub_field('subtitle');
 
-
 ?>
 
 <section>

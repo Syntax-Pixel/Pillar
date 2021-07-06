@@ -6,7 +6,6 @@ $button_url = get_sub_field( 'url' );
 
 ?>
 
-
 <section class="bg--primary space--sm cta cta-5">
     <div class="container">
         <div class="row">
@@ -14,7 +13,7 @@ $button_url = get_sub_field( 'url' );
                 <h4><?php echo $title; ?></h4>
                 <a class="btn btn--sm" href="<?php echo $button_url; ?>">
                     <span class="btn__text">
-                        <?php echo $button_text ?>
+                        <?php echo $button_text; ?>
                     </span>
                 </a>
             </div>

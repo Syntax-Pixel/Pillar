@@ -1,16 +1,13 @@
-
 <?php
 
 $items = get_sub_field('items');
 
 ?>
 
-
 <section>
     <div class="container">
         <div class="row">
-        <?php
-        foreach($items as $item) : ?>
+        <?php foreach($items as $item) : ?>
             <div class="col-sm-6">
                 <div class="feature feature-3">
                     <div class="feature__left">
@@ -22,7 +19,7 @@ $items = get_sub_field('items');
                     </div>
                 </div>
             </div>
-            <?php endforeach; ?>
+        <?php endforeach; ?>
            
         </div>
         <!--end of row-->
