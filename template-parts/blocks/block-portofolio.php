@@ -6,6 +6,7 @@ $args = array(
     'post_type'      => 'portofolio',
     'posts_per_page' => 6,
     'taxonomy'       => 'portofolio-category',
+    pos
 );
 $query = new WP_Query($args);
 
