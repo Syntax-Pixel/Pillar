@@ -23,7 +23,7 @@ $features = get_sub_field('items');
     foreach ($features as $feature) : ?>
         <div class="col-sm-3 col-xs-6">
             <div class="feature feature-1 text-center">
-                <i class="icon icon--lg icon-Bodybuilding"></i>
+                <i class="icon icon--lg icon-<?php echo $feature['icon']; ?>"></i>
                 <h3><?php echo $feature['title']; ?></h3>
                 <span>
                     <em><?php echo $feature['subtitle']; ?></em>

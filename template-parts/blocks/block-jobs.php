@@ -14,7 +14,7 @@ $items = get_sub_field('items');
             <div class="col-sm-6">
                 <div class="feature feature-3">
                     <div class="feature__left">
-                        <i class="icon icon-Sidebar-Window color--primary"></i>
+                        <i class="icon icon-<?php echo $item['icon']; ?> color--primary"></i>
                     </div>
                     <div class="feature__right">
                         <h6><?php echo $item['title']; ?></h6>
