@@ -20,19 +20,19 @@
 			<div class="row">
 				<div class="col-md-3 col-sm-4">
 					<img alt="logo" class="logo" src="<?php echo get_field( 'logo_footer' , 'option' ); ?>" />
-					<p>
-						<em><?php echo get_field( 'slogan' , 'option' ); ?></em>
-					</p>
-					<ul class="footer__navigation">
-					<?php foreach( $links as $link ) : ?>
-						<li>
-							<a href="<?php echo $link['url']; ?>">
-								<span><?php echo $link['text']; ?></span>
-							</a>
-						</li>
-					<?php endforeach; ?>
-					</ul>
+						<p>
+							<em><?php echo get_field( 'slogan' , 'option' ); ?></em>
+						</p>
+							<?php
+								wp_nav_menu(
+									array(
+										'theme_location'  => 'pillar-menu',
+										'menu_class'      => 'footer__navigation',
+									)
+								);
+							?>
 				</div>
+				
 				<div class="col-md-4 col-sm-8">
 					<?php if( is_active_sidebar( 'pillar-custom-widget-1' ) ){
 						dynamic_sidebar( 'pillar-custom-widget-1' );

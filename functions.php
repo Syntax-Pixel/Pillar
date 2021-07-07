@@ -437,3 +437,8 @@ if( function_exists('acf_add_options_page') ) {
 	// 	'parent_slug'	=> 'theme-general-settings',
 	// ));
 }
+
+function pillar_custom_menu(){
+	register_nav_menu( 'pillar-menu' , __( 'Pillar Menu' ) );
+}
+add_action( 'init' , 'pillar_custom_menu' );
