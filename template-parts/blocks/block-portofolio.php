@@ -20,7 +20,7 @@ $query = new WP_Query($args);
             <a href="<?php echo get_permalink(); ?>">
                 <div class="hover-element hover-element-1" data-title-position="top,right">
                     <div class="hover-element__initial">
-                        <img alt="Pic" src="<?php the_post_thumbnail_url(); ?>" />
+                        <img alt="Pic" src="<?php the_post_thumbnail_url(); ?>" /> 
                     </div>
                     <div class="hover-element__reveal" data-overlay="0" style="background:<?php echo get_field( 'overlay_color' ); ?>66;">
                         <div class="boxed">
