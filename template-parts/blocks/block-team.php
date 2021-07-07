@@ -40,7 +40,7 @@
                             </li>
                             <li>
                                 <a href="<?php echo $youtube['url']; ?>">
-                                    <i class="<?php echo $youtube['icon']; ?> ?>"></i>
+                                    <i class="<?php echo $youtube['icon']; ?>"></i>
                                 </a>
                             </li>
                             <li>
