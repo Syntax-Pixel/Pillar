@@ -17,7 +17,7 @@ $query = new WP_Query($args);
     <?php while ( $query->have_posts() ) : $query->the_post(); ?>
     <?php  $terms = wp_get_post_terms( get_the_ID(), 'portofolio-category'); ?>
         <div class="col-md-4 col-sm-6 masonry__item" data-masonry-filter="<?php echo $terms[0]->name; ?>">   
-            <a href="#">
+            <a href="<?php echo get_permalink(); ?>">
                 <div class="hover-element hover-element-1" data-title-position="top,right">
                     <div class="hover-element__initial">
                         <img alt="Pic" src="<?php the_post_thumbnail_url(); ?>" />

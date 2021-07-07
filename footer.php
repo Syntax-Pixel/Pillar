@@ -11,6 +11,7 @@
 
 	$socials = get_field( 'social_media' , 'option' );
 	$links   = get_field( 'link_menu_footer' , 'option' );
+	$credit  = get_field( 'footer_credit' , 'option' );
 
 ?>
 	</div>
@@ -62,7 +63,7 @@
 				<div class="row">
 					<div class="col-sm-6 text-center-xs">
 						<span class="type--fine-print">&copy; Copyright
-							<span class="update-year">2016</span> Medium Rare - All Rights Reserved</span>
+							<span class="update-year">2016</span> <a style="text-decoration:none;" href="<?php echo $credit['credit_url']; ?>"><?php echo $credit['credit_text']; ?></a> - All Rights Reserved</span>
 					</div>
 					<div class="col-sm-6 text-right text-center-xs">
 						<a href="#top" class="inner-link top-link">

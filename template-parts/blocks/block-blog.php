@@ -16,7 +16,7 @@
         <div class="row">
         <?php while ( $query->have_posts() ) : $query->the_post(); ?>
             <div class="col-md-4 col-sm-6">
-                <a href="#">
+                <a href="<?php echo get_permalink(); ?>">
                     <div class="card card-4">
                         <div class="card__image">
                             <img alt="Pic" src="<?php the_post_thumbnail_url(); ?> " />
@@ -42,7 +42,7 @@
         <!--end of row-->
         <div class="row">
             <div class="col-sm-12 text-center">
-                <a class="btn" href="<?php $button_url; ?>">
+                <a class="btn" href="index.php?p=<?php echo get_option( 'page_for_posts' ); ?>">
                     <span class="btn__text">
                         <?php echo $button_text; ?>
                     </span>
