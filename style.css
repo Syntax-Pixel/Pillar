@@ -28,3 +28,48 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
     line-height: 1.625em;
     font-weight: 400;
 }
+/* Single Page Navbar Post */
+body.post-template-default .nav-bar.nav--transparent:not(.nav--scrolled):not(.nav--fixed) .menu > li > a {
+    color: #232323;
+}
+body.post-template-default .nav-bar.nav--transparent:not(.nav--scrolled):not(.nav--fixed) .logo-dark {
+    display:inline;
+}
+body.post-template-default .nav-bar.nav--transparent:not(.nav--scrolled):not(.nav--fixed) .logo-light {
+    display:none;
+}
+body.post-template-default .nav-bar.nav--transparent:not(.nav--scrolled):not(.nav--fixed) a.nav-function i, .nav-bar.nav--transparent:not(.nav--scrolled):not(.nav--fixed) a.nav-function span {
+    color: #232323;
+}
+
+/* Single Page Navbar Portofolio */
+
+body.portofolio-template-default .nav-bar.nav--transparent:not(.nav--scrolled):not(.nav--fixed) .menu > li > a {
+    color: #232323;
+}
+body.portofolio-template-default .nav-bar.nav--transparent:not(.nav--scrolled):not(.nav--fixed) .logo-dark {
+    display:inline;
+}
+body.portofolio-template-default .nav-bar.nav--transparent:not(.nav--scrolled):not(.nav--fixed) .logo-light {
+    display:none;
+}
+body.portofolio-template-default .nav-bar.nav--transparent:not(.nav--scrolled):not(.nav--fixed) a.nav-function i, .nav-bar.nav--transparent:not(.nav--scrolled):not(.nav--fixed) a.nav-function span {
+    color: #232323;
+}
+
+/* Single Post Navbar Team */
+
+body.team-template-default .nav-bar.nav--transparent:not(.nav--scrolled):not(.nav--fixed) .menu > li > a {
+    color: #232323;
+}
+body.team-template-default .nav-bar.nav--transparent:not(.nav--scrolled):not(.nav--fixed) .logo-dark {
+    display:inline;
+}
+body.team-template-default .nav-bar.nav--transparent:not(.nav--scrolled):not(.nav--fixed) .logo-light {
+    display:none;
+}
+body.team-template-default .nav-bar.nav--transparent:not(.nav--scrolled):not(.nav--fixed) a.nav-function i, .nav-bar.nav--transparent:not(.nav--scrolled):not(.nav--fixed) a.nav-function span {
+    color: #232323;
+}
+
+
