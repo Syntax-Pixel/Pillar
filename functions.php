@@ -51,6 +51,7 @@ if ( ! function_exists( 'pillar_theme_setup' ) ) :
 		register_nav_menus(
 			array(
 				'menu-1' => esc_html__( 'Primary', 'pillar-theme' ),
+				'menu-2' => esc_html__( 'Pillar Menu Footer', 'pillar-theme' ),
 			)
 		);
 
@@ -443,8 +444,4 @@ if( function_exists('acf_add_options_page') ) {
 	// ));
 }
 
-function pillar_custom_menu(){
-	register_nav_menu( 'pillar-menu' , __( 'Pillar Menu Footer' ) );
-}
-add_action( 'init' , 'pillar_custom_menu' );
 
