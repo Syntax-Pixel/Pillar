@@ -42,7 +42,7 @@
         <!--end of row-->
         <div class="row">
             <div class="col-sm-12 text-center">
-                <a class="btn" href="index.php?p=<?php echo get_option( 'page_for_posts' ); ?>">
+                <a class="btn" href="blog/">
                     <span class="btn__text">
                         <?php echo $button_text; ?>
                     </span>
