@@ -193,7 +193,7 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
- * Customizer additions.
+ * Comment Helper
  */
 require get_template_directory() . '/inc/comment-part.php';
 
@@ -204,238 +204,29 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-function pillar_get_page_blocks() {
-	// $blocks = array(
-    //     'block_hero', 
-    //     'block_stockist'
-    // );
-    if( have_rows('page_blocks') ):
-        while ( have_rows('page_blocks') ) : the_row();
-            $layout = get_row_layout();
-			$layout = str_replace( 'block_', '', $layout );
-			get_template_part( 'template-parts/blocks/block', $layout);
-            
-            // if( in_array( get_row_layout(), $blocks ) ){
-            //     get_template_part( 'template-parts/blocks/block', $layout );
-            // }
-			
-        endwhile;
-        return true;
-    endif;
-}
+// ACF Get Page Block
+require get_template_directory() . '/functions/acf-page-block.php';
 
-add_filter('acf/settings/save_json', 'pillar_acf_json_save_point');
-function pillar_acf_json_save_point( $path ) {
-    $path = get_stylesheet_directory() . '/acf-json';
-    return $path;
-}
-add_filter('acf/settings/load_json', 'pillar_acf_json_load_point');
-function pillar_acf_json_load_point( $paths ) {
-    unset($paths[0]);
-    $paths[] = get_stylesheet_directory() . '/acf-json';
-    return $paths; 
-}
-function pillar_create_post_type_portofolio(){
-	$args = array(
-		'supports' => array( 'title' , 'editor' , 'custom-field' , 'thumbnail' ),
-		'labels' => array(
-			'name' => __( 'Portofolios' ),
-			'singular_name' => __( 'Portofolio' ),
-		),
-		'public' => true,
-		'rewrite' => array( 'slug' => __( 'portofolios' ) ),
-		);
-	register_post_type( 'portofolio' , $args );
-}
-add_action( 'init', 'pillar_create_post_type_portofolio' );
-// Register Custom Taxonomy
-function pillar_portofolio_taxonomy() {
-	$labels = array(
-		'name'                       => _x( 'Portofolio Categories', 'Portofolio Categories', 'pillar' ),
-		'singular_name'              => _x( 'Portofolio Category', 'Portofolio Category', 'pillar' ),
-		'menu_name'                  => __( 'Portofolio Category', 'pillar' ),
-		'all_items'                  => __( 'All Categories', 'pillar' ),
-		'parent_item'                => __( 'Parent Category', 'pillar' ),
-		'pareCategory_colon'         => __( 'Parent Category:', 'pillar' ),
-		'new_item_name'              => __( 'New Category Name', 'pillar' ),
-		'add_new_item'               => __( 'Add New Category', 'pillar' ),
-		'edit_item'                  => __( 'Edit Category', 'pillar' ),
-		'update_item'                => __( 'Update Category', 'pillar' ),
-		'view_item'                  => __( 'View Category', 'pillar' ),
-		'separate_items_with_commas' => __( 'Separate Categories with commas', 'pillar' ),
-		'add_or_remove_items'        => __( 'Add or remove Categories', 'pillar' ),
-		'choose_from_most_used'      => __( 'Choose from the most used', 'pillar' ),
-		'popular_items'              => __( 'Popular Categories', 'pillar' ),
-		'search_items'               => __( 'Search Categories', 'pillar' ),
-		'not_found'                  => __( 'Not Found', 'pillar' ),
-		'no_terms'                   => __( 'No Categories', 'pillar' ),
-		'items_list'                 => __( 'Categories list', 'pillar' ),
-		'items_list_navigation'      => __( 'Categories list navigation', 'pillar' ),
-	);
-	$args = array(
-		'labels'                     => $labels,
-		'hierarchical'               => false,
-		'public'                     => true,
-		'show_ui'                    => true,
-		'show_admin_column'          => true,
-		'show_in_nav_menus'          => true,
-		'show_tagcloud'              => true,
-	);
-	register_taxonomy( 'portofolio-category', array( 'portofolio' ), $args );
-}
-add_action( 'init', 'pillar_portofolio_taxonomy', 0 );
+// ACF Backup Point
+require get_template_directory() . '/functions/acf-backup.php';
 
+// Register Custom Post Type Portofolio
+require get_template_directory() . '/functions/post-portofolio.php';
 
-function pillar_create_post_type_team() {
-	$args = array(
-		'supports' => array( 'title' , 'editor' , 'custom-field' , 'thumbnail' ),
-		'labels' => array(
-			'name' => __( 'Teams' ),
-			'singular_name' => __( 'Team' ),
-		),
-		'public' => true,
-		'rewrite' => array( 'slug' => __( 'teams' ) ),
-		);
-	register_post_type( 'team' , $args );
-}
-add_action( 'init', 'pillar_create_post_type_team' );
+// Register Custom Post Type Team
+require get_template_directory() . '/functions/post-team.php';
 
 // Register Custom Taxonomy
-function pillar_team_taxonomy() {
-	$labels = array(
-		'name'                       => _x( 'Team Roles', 'Team Roles', 'pillar' ),
-		'singular_name'              => _x( 'Team Role', 'Team Role', 'pillar' ),
-		'menu_name'                  => __( 'Team Role', 'pillar' ),
-		'all_items'                  => __( 'All Roles', 'pillar' ),
-		'parent_item'                => __( 'Parent Role', 'pillar' ),
-		'pareCategory_colon'         => __( 'Parent Role:', 'pillar' ),
-		'new_item_name'              => __( 'New Role Name', 'pillar' ),
-		'add_new_item'               => __( 'Add New Role', 'pillar' ),
-		'edit_item'                  => __( 'Edit Role', 'pillar' ),
-		'update_item'                => __( 'Update Role', 'pillar' ),
-		'view_item'                  => __( 'View Role', 'pillar' ),
-		'separate_items_with_commas' => __( 'Separate Roles with commas', 'pillar' ),
-		'add_or_remove_items'        => __( 'Add or remove Roles', 'pillar' ),
-		'choose_from_most_used'      => __( 'Choose from the most used', 'pillar' ),
-		'popular_items'              => __( 'Popular Roles', 'pillar' ),
-		'search_items'               => __( 'Search Roles', 'pillar' ),
-		'not_found'                  => __( 'Not Found', 'pillar' ),
-		'no_terms'                   => __( 'No Roles', 'pillar' ),
-		'items_list'                 => __( 'Roles list', 'pillar' ),
-		'items_list_navigation'      => __( 'Roles list navigation', 'pillar' ),
-	);
-	$args = array(
-		'labels'                     => $labels,
-		'hierarchical'               => false,
-		'public'                     => true,
-		'show_ui'                    => true,
-		'show_admin_column'          => true,
-		'show_in_nav_menus'          => true,
-		'show_tagcloud'              => true,
-	);
-	register_taxonomy( 'team-role', array( 'team' ), $args );
-}
-add_action( 'init', 'pillar_team_taxonomy', 0 );
+require get_template_directory() . '/functions/add-taxonomy.php';
 
-// Footer Widget Area
+// Add Custom Sidebar
+require get_template_directory() . '/functions/add-sidebar.php';
 
-register_sidebar( array(
-    'name' => 'Pillar Widget Footer 1',
-    'id' => 'pillar-custom-widget-1',
-    'description' => 'This Widget Appear on footer',
-    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-    'after_widget' => '</aside>',
-    'before_title' => '<h6 class="widget-title">',
-    'after_title' => '</h6>',
-    ) );
+// Add Custom Widget
+require get_template_directory() . '/functions/add-widget.php';
 
+// Add General Theme Setting ACF
+require get_template_directory() . '/functions/add-general-theme.php';
 
-register_sidebar( array(
-    'name' => 'Pillar Widget Footer 2',
-    'id' => 'pillar-custom-widget-2',
-    'description' => 'This Widget Appear on footer',
-    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-    'after_widget' => '</aside>',
-    'before_title' => '<h6 class="widget-title">',
-    'after_title' => '</h6>',
-    ) );
-
-// Custom Widget
-
-class Pillar_custom_widget extends WP_Widget {
-
-	function __construct(){
-		parent::__construct(
-			// ID
-			'pillar_subscribe',
-			// Name
-			__( 'Pillar Subscribe' , 'pillar' ),
-			// Description
-			array( 'description' => __( 'pillar'), ),
-
-		);
-	}
-
-	public function widget( $args , $instance ){
-		$title = apply_filters( 'widget_title', $instance[ 'title' ] );
-		$blog_title = get_bloginfo( 'name' );
-		$tagline = get_bloginfo( 'description' );
-		$subscribe_item = get_field( 'subscribe' , 'option' );
-		
-		echo $args['before_widget'] . $args['before_title'] . $title . $args['after_title']; ?>
-		<p>
-			<?php echo $subscribe_item['sub_title']; ?>
-		</p>
-		<form class="form--merge form--no-labels" action="<?php echo $subscribe_item['url_form']; ?>" method="post" id="subForm" data-error="Please fill all fields correctly." data-success="Thanks for signing up! Please check your inbox for confirmation email.">
-			<p>
-				<label for="fieldEmail">Email Address</label>
-				<br />
-				<input class="col-md-8 col-sm-6 validate-required validate-email" id="fieldEmail" name="cm-kieth-kieth" type="email" required />
-			</p>
-			<p>
-				<button type="submit">Go</button>
-			</p>
-		</form>
-	  
-		<?php echo $args['after_widget'];
-	}
-
-	public function form( $instance ){
-		if ( isset( $instance[ 'title' ] ) )
-			$title = $instance[ 'title' ];
-		else
-			$title = __( 'Pillar Widget', 'pillar' );
-		?>
-		<p>
-		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
-		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
-		</p>
-		<?php
-	}
-
-	public function update( $new_instance , $old_instane ){
-		$instance = array();
-		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-		return $instance;
-	}
-}
-
-function pillar_register_widget() {
-	register_widget( 'Pillar_custom_widget' );
-	}
-add_action( 'widgets_init', 'pillar_register_widget' );
-
-// test
-
-if( function_exists('acf_add_options_page') ) {
-	
-	acf_add_options_page(array(
-		'page_title' 	=> 'Theme General Settings',
-		'menu_title'	=> 'Theme Settings',
-		'menu_slug' 	=> 'theme-general-settings',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> false
-	));
-}
 
 
